@@ -36,7 +36,7 @@ static O_1: [&str; 3]= ["█▀█", "█░█", "▀▀▀"];
 
 static P: [&str; 3]= ["█▀█", "█▀▀", "▀░░"];
 
-static Q: [&str; 3]= ["█▀▀█", "█░▀█▄", "▀▀▀▀"];
+static Q: [&str; 3]= [ "█▀▀█░", "█░▀█▄", "▀▀▀▀░"];
 
 static R: [&str; 3]= ["█▀▀▄", "█▀▀▄", "▀░░▀"];
 
@@ -55,7 +55,7 @@ static X: [&str; 3]= ["█░█", "▄▀▄", "▀░▀"];
 
 static Y: [&str; 3]= ["█░█", "░█░", "░▀░"];
 
-static Z: [&str; 3]= ["▀▀▀█", "░▄▀░", "█▄▄▄"];
+static Z: [&str; 3]= ["▀▀█", "▄▀░", "▀▀▀"];
 
 // Declaring Public variables
 pub static EXCLAMATION: [&str; 3]= ["█", "▀", "▀"];
