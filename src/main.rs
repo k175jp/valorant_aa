@@ -1,3 +1,5 @@
+include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
+
 mod aa_str;
 
 use aa_str::EXCLAMATION;
@@ -7,14 +9,21 @@ use aa_str::AA;
 
 use std::env;
 
+use windows::application_model::data_transfer::{DataPackage, Clipboard};
 
-fn main() {
+fn main() -> winrt::Result<()> {
     let args: Vec<String> = env::args().collect();
-    let (r, e) = create_aa(args);
+    let (mut r, e) = create_aa(args);
     println!("{}\n{}", r, e);
     if r != "" {
-        // copy to clipboard
+        let content = DataPackage::new()?;
+        r.retain(|x| x != '\n');
+        content.set_text(r)?;
+
+        Clipboard::set_content(content)?;
+        Clipboard::flush()?;
     }
+    Ok(())
 }
 
 fn create_aa(args: Vec<String>) -> (String, String){
